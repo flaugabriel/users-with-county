@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  db_om30:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USERNAME=postgres
+    ports:
+      - "5432:5432"

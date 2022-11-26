@@ -1,0 +1,47 @@
+/.bundle
+/.project
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*.log
+/tmp/**/*
+/public/uploads/*
+/fig.yml
+/public/file_storage/
+/public/javascripts/*
+/public/storage/*
+/public/version
+/node_modules
+coverage
+# React on Rails
+npm-debug.log*
+node_modules
+.project
+.DS_Store
+test/fixtures/file_storage/*
+
+# Generated js bundles
+/app/assets/webpack/*
+tags
+.env
+public/assets/
+.prettierrc.js
+
+#VScode
+.vscode/
+
+#Swap file vim
+.*.swp
+
+# RVM gemset name
+.ruby-gemset
+
+.byebug_history
+
+# Ignore IntelliJ’s project specific settings folder
+.idea/
+./front-end-om30-flauzino/.idea
+./front-end-om30-flauzino/.vscode/
+
+# Auto generated ERD file
+# vscode
+.vscode

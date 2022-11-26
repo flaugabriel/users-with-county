@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  port: 5432
+  host: 10.12.0.1
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: om30_developer
+
+test:
+  <<: *default
+  database: om30_developer_test
+
+production:
+  <<: *default
+  database: om30_developer_prod
