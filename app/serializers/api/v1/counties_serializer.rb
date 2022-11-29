@@ -18,6 +18,6 @@ class Api::V1::CountiesSerializer < ActiveModel::Serializer
   end
 
   def user_count
-    object.user_counties.map(&:user).length  || 0
+    object.user_counties.map(&:user).length || 0
   end
 end

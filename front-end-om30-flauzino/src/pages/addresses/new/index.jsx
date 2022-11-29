@@ -164,7 +164,7 @@ const CountiesEdit = (props) => {
 								className="btn btn-success"
 								type="submit"
 							>
-								Atualizar
+								Salvar
 							</button>
 						</div>
 					)}

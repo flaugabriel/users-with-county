@@ -98,7 +98,7 @@ const UserEdit = (props) => {
   	.then((response) => response.json())
   	.then((result) => {
 			if (result.status !== 200) {
-				alert('Atualiado!');
+				alert('Atualizado!');
 				window.location.href = '/users'
 			}else{
 				alert(result)

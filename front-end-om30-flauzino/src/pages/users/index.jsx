@@ -61,7 +61,7 @@ const User = ({urlApi}) => {
                   <input type="checkbox" className="btn-check" id="status" name="status" autocomplete="off"/>
                   <label className="btn btn-outline-primary" for="status">Status</label>
                   <button className="btn btn-sm btn-success" type="button">Buscar</button>
-                  <button className="btn btn-outline-white text-dark" type="button">Limpar</button>
+                  <a className="btn btn-outline-white text-dark" href={`/users`} type="button">Limpar</a>
                 </div>
               </div>
             </div>

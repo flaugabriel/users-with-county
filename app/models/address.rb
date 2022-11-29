@@ -5,8 +5,8 @@ class Address < ApplicationRecord
   validates_presence_of :street, :street, :city, :uf, :cep
 
   def cep=(cep)
-    if cep.is_a?(String)
-      self[:cep] = cep.gsub('-', '').to_i
-    end
+    return unless cep.is_a?(String)
+
+    self[:cep] = cep.gsub('-', '').to_i
   end
 end

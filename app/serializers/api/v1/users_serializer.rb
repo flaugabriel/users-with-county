@@ -3,9 +3,8 @@ class Api::V1::UsersSerializer < ActiveModel::Serializer
 
   attributes :id, :name, :cpf, :cns, :email, :birth_date, :phone, :status, :avatar_url
 
-
   def avatar_url
-    object.avatar.attached? ?  rails_blob_url(object.avatar) : ''
+    object.avatar.attached? ? rails_blob_url(object.avatar) : ''
   end
 
   def id
@@ -29,7 +28,7 @@ class Api::V1::UsersSerializer < ActiveModel::Serializer
   end
 
   def birth_date
-    object.birth_date.strftime("%d/%m/%Y") || ''
+    object.birth_date.strftime('%d/%m/%Y') || ''
   end
 
   def phone

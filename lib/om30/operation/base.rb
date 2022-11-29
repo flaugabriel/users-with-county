@@ -19,12 +19,12 @@ module Om30
         return unless result.success?
 
         catch :abort do
-          self.validate(params)
-          self.process(params) if result.success?
+          validate(params)
+          process(params) if result.success?
         end
         result.success?
       rescue StandardError => e
-        if self.respond_to?(:logger) && logger.present?
+        if respond_to?(:logger) && logger.present?
           logger.error(e.message)
           logger.error(e.backtrace)
         end

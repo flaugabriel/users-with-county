@@ -49,6 +49,7 @@ class Api::V1::AddressesController < ApplicationController
   end
 
   private
+
   def set_address
     @address = Address.find(params[:id])
   end

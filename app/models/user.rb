@@ -22,12 +22,13 @@ class User < ApplicationRecord
   end
 
   def avatar_file
-    if avatar.present?
-      return avatar.blob.content_type.include?("jpeg") ||  avatar.blob.content_type.include?("png")
+    return unless avatar.present?
 
-      errors.add(:base, 'Formato não foto não aceito!')
-    end
+    return avatar.blob.content_type.include?('jpeg') || avatar.blob.content_type.include?('png')
+
+    errors.add(:base, 'Formato não foto não aceito!')
   end
+
   def cpf_valid
     return if CPF.valid?(cpf)
 

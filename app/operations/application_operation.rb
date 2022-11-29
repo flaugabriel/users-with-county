@@ -1,5 +1,5 @@
 class ApplicationOperation
-  def initialize(*args)
+  def initialize(*_args)
     @errors = nil
     @resource = nil
   end

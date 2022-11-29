@@ -1,5 +1,4 @@
 class UserCounty < ApplicationRecord
-
   belongs_to :user
   belongs_to :county
   has_many :addresses
@@ -15,8 +14,8 @@ class UserCounty < ApplicationRecord
       user_county = UserCounty.find_by(user_id: user.id, county_id: county.id).present?
     end
 
-    if user_county
-      errors.add(:blank, 'Já existe!')
-    end
+    return unless user_county
+
+    errors.add(:blank, 'Já existe!')
   end
 end

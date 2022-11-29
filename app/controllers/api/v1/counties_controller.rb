@@ -19,7 +19,10 @@ class Api::V1::CountiesController < ApplicationController
   end
 
   def show_user
-    return json_error_response('Não foi encontrado pessoas neste municipio', :not_found) unless @county.user_counties.present?
+    unless @county.user_counties.present?
+      return json_error_response('Não foi encontrado pessoas neste municipio',
+                                 :not_found)
+    end
 
     render json: @county.user_counties, each_serializer: Api::V1::CountiesAndUsersSerializer, status: :ok
   end
@@ -63,13 +66,14 @@ class Api::V1::CountiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_county
-      @county = County.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def county_params
-      params.require(:county).permit(:name, :user_id, addresses_attributes: {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_county
+    @county = County.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def county_params
+    params.require(:county).permit(:name, :user_id, addresses_attributes: {})
+  end
 end

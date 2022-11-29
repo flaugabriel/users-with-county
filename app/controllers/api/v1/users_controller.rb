@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all.order('updated_at desc')
+    @users = User.all.order('updated_at desc').limit(params[:limit]).offset(params[:offset])
 
     return json_error_response('Não foi encontrado nenhuma pessoa', :not_found) unless @users.present?
 
@@ -56,13 +56,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:name, :cpf, :cns, :email, :birth_date, :phone, :status, :avatar)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:name, :cpf, :cns, :email, :birth_date, :phone, :status, :avatar)
+  end
 end

@@ -1,6 +1,5 @@
 class County < ApplicationRecord
-  enum status: %w(off on)
-
+  enum status: %w[off on]
 
   has_many :user_counties
   has_many :addresses

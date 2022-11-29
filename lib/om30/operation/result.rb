@@ -25,7 +25,7 @@ module Om30
         break!
       end
 
-      alias_method :error!, :abort!
+      alias error! abort!
 
       def add_error(msg)
         errors << msg
