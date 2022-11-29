@@ -9,11 +9,17 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validate :cpf_valid, :validate_age, :avatar_file
 
+  after_update :send_notify_email
+
   def avatar_url
     Rails.application.routes.url_helpers.url_for(avatar) if avatar.attached?
   end
 
   private
+
+  def send_notify_email
+    UserMailer.profile_updated(self).deliver_now!
+  end
 
   def avatar_file
     if avatar.present?
