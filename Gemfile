@@ -9,6 +9,7 @@ gem 'rack-cors'
 gem 'pg', '~> 1.1'
 gem "puma", "~> 5.0"
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'i18n'
 # gem "redis", "~> 4.0"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

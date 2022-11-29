@@ -193,6 +193,7 @@ DEPENDENCIES
   bootsnap
   cpf_cnpj (~> 0.2.1)
   debug
+  i18n
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors

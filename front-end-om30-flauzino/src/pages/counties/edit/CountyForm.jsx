@@ -42,7 +42,8 @@ function CountyForm({ form, additionalData, endpointUrl, id }) {
           setStatus("success");
         })
         .catch((err) => {
-          setMessage(err.toString());
+          console.log(err);
+          setMessage('Já existe esta pessoa nesse municipio!');
           setStatus("error");
         });
     }

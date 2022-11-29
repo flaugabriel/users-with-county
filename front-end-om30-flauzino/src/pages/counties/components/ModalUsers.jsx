@@ -2,19 +2,40 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const ModalUsers = (props, refresh) => {
+	const [isLoad, setIsLoad] = useState(true);
   
   function getAPIData() {
     return axios.get(props.urlApi + 'counties/show_user/' + props.county.id).then((res) => res.data)
   }
 
+  function actionUpdateStatus(id) {
+    return axios.delete(props.urlApi + 'counties/destroy_user_county/' + id).then((res) => res.data)
+  }
+
   const [resp, setResp] = useState({});
+
+  const destroyUser = (id) => {
+    setResp({});
+
+    actionUpdateStatus(id).then((resp) => {
+      if (resp.messenger  !== undefined && resp.messenger !== '') {
+        alert(resp.messenger);
+        getAPIData().then((user) => {
+          setResp(user)
+        }); 
+      }else{
+        alert('Algo deu errado durante atualização do status');
+      }
+    });
+  }
 
   useEffect(() => {
     let mounted = props.openModal;
     if (props.openModal) {
       getAPIData().then((user) => {
-        if (mounted) {
+        if (mounted && isLoad) {
           setResp(user)
+          setIsLoad(false)
         }
       }); 
     }
@@ -66,7 +87,9 @@ const ModalUsers = (props, refresh) => {
                             <span className="badge bg-success">Ativo</span>
                           }
                         </td>
-                        <td>botao</td>
+                        <td>
+                          <a className="btn btn-danger btn-sm" href="/#" onClick={() => destroyUser(user.id)}>Remover</a>
+                        </td>
                       </tr>
                     ) : <span>
                       Não foi encontrado nenhuma pessoa neste municipio

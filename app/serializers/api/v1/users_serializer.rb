@@ -1,5 +1,12 @@
 class Api::V1::UsersSerializer < ActiveModel::Serializer
-  attributes :id, :name, :cpf, :cns, :email, :birth_date, :phone, :status
+  include Rails.application.routes.url_helpers
+
+  attributes :id, :name, :cpf, :cns, :email, :birth_date, :phone, :status, :avatar_url
+
+
+  def avatar_url
+    object.avatar.attached? ?  rails_blob_url(object.avatar) : ''
+  end
 
   def id
     object.id || 0
@@ -10,7 +17,7 @@ class Api::V1::UsersSerializer < ActiveModel::Serializer
   end
 
   def cpf
-    object.cpf || ''
+    object.cpf || '00000000000'
   end
 
   def cns
@@ -22,7 +29,7 @@ class Api::V1::UsersSerializer < ActiveModel::Serializer
   end
 
   def birth_date
-    object.birth_date || ''
+    object.birth_date.strftime("%d/%m/%Y") || ''
   end
 
   def phone

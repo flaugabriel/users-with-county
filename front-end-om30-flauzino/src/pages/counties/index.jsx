@@ -46,7 +46,31 @@ const Counties = ({urlApi}) => {
 
   return (
     <Fragment>
-      <h2>Lista de Municipios</h2>
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <div className="col-md-4">
+          <h2>Lista de Municipios</h2>
+        </div>
+        <div className='row'>
+            <div className="col-md-12">
+              <div className="btn-toolbar mb-2 mb-md-0">
+                <div className="btn-group me-2">
+                  <div className="input-group input-group-lg">
+                    <input type="text" className="form-control" placeholder="Pesquisa..." />
+                    <span className='mb-md-1'></span>
+                  </div>
+                  <input type="checkbox" className="btn-check" id="recent" name="recent" autocomplete="off"/>
+                  <label className="btn btn-outline-primary" for="recent">Recente</label>
+                  <input type="checkbox" className="btn-check" id="lasties" name="lasties" autocomplete="off"/>
+                  <label className="btn btn-outline-primary" for="lasties">Ultimos</label>
+                  <input type="checkbox" className="btn-check" id="status" name="status" autocomplete="off"/>
+                  <label className="btn btn-outline-primary" for="status">Status</label>
+                  <button className="btn btn-sm btn-success" type="button">Buscar</button>
+                  <button className="btn btn-outline-white text-dark" type="button">Limpar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
           <thead>

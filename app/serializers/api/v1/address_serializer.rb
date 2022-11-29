@@ -1,8 +1,12 @@
 class Api::V1::AddressSerializer < ActiveModel::Serializer
-  attributes :cep, :complement, :street, :neighborhood, :city, :uf, :ibge_code
+  attributes :id, :cep, :complement, :street, :neighborhood, :city, :uf, :ibge_code, :county_name
+
+  def id
+    object.id || 0
+  end
 
   def cep
-    object.cep || 0
+    object.cep.to_s || 0
   end
 
   def complement
@@ -27,5 +31,9 @@ class Api::V1::AddressSerializer < ActiveModel::Serializer
 
   def ibge_code
     object.ibge_code || ''
+  end
+
+  def county_name
+    object.county.name
   end
 end
