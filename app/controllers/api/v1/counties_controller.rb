@@ -42,9 +42,9 @@ class Api::V1::CountiesController < ApplicationController
   def create
     resp = Operations::Api::V1::CountyCreate.new.call(county_params.merge(user_id: params[:user_id]))
     if resp.errors.present?
-      render json: { messenger: resp.errors.first[:county] }, status: :unprocessable_entity
+      render json: { messenger: resp.errors.first }, status: :unprocessable_entity
     else
-      render json: @county
+      render json: { messenger: 'Cadastro realizado' }, status: :ok
     end
   end
 

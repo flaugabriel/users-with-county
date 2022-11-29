@@ -4,7 +4,7 @@ class User < ApplicationRecord
   enum status: %w[off on]
   has_one :user_county
 
-  validates_uniqueness_of :name, only: :create
+  validates_uniqueness_of :name, :email, only: :create
   validates_presence_of :name, :cpf, :cns, :email, :birth_date, :phone
   validates :email, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validate :cpf_valid, :validate_age, :avatar_file
