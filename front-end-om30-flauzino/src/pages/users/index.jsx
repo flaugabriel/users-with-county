@@ -21,7 +21,24 @@ const User = ({urlApi}) => {
   }
 
   function getAPIData() {
-   return axios.get(urlApi + 'users').then((res) => res.data);
+    return axios.get(urlApi + 'users?order=updated_at desc').then((res) => res.data);
+  }
+
+  function getAPIDataFilter(filter) {
+    var order = filter.order !== undefined ? filter.order : 'created_at asc'
+    var status = filter.status !== undefined ? filter.status : ''
+    return axios.get(urlApi + 'users?order='+ order +'&status='+ status ).then((res) => res.data);
+  }
+
+
+  const setFilters = (filter) => {
+    getAPIDataFilter(filter).then((resp) => {
+      if (resp.length > 0) {
+        setUsers(resp)
+      }else{
+        alert('Nada encontrado!');
+      }
+    });
   }
 
   useEffect(() => {
@@ -40,32 +57,21 @@ const User = ({urlApi}) => {
     return () => (mounted);
   },);
 
-  console.log(users);
-
   return (
     <Fragment>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Lista de Pessoas</h2>
-          <div className='row'>
-            <div className="col-md-12">
-              <div className="btn-toolbar mb-2 mb-md-0">
-                <div className="btn-group me-2">
-                  <div className="input-group input-group-lg">
-                    <input type="text" className="form-control" placeholder="Pesquisa..." />
-                    <span classNameName='mb-md-1'></span>
-                  </div>
-                  <input type="checkbox" className="btn-check" id="recent" name="recent" autocomplete="off"/>
-                  <label className="btn btn-outline-primary" for="recent">Recente</label>
-                  <input type="checkbox" className="btn-check" id="lasties" name="lasties" autocomplete="off"/>
-                  <label className="btn btn-outline-primary" for="lasties">Ultimos</label>
-                  <input type="checkbox" className="btn-check" id="status" name="status" autocomplete="off"/>
-                  <label className="btn btn-outline-primary" for="status">Status</label>
-                  <button className="btn btn-sm btn-success" type="button">Buscar</button>
-                  <a className="btn btn-outline-white text-dark" href={`/users`} type="button">Limpar</a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="dropdown">
+          <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+            Filtre por
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href='users#' onClick={() => setFilters({order: 'updated_at desc'})}>Recente</a></li>
+            <li><a class="dropdown-item" href='users#' onClick={() => setFilters({order: 'created_at desc'})}>Antigos</a></li>
+            <li><a class="dropdown-item" href='users#' onClick={() => setFilters({status: 'on'})}>Status ativos</a></li>
+            <li><a class="dropdown-item" href='users#' onClick={() => setFilters({status: 'off'})}>Status inativos</a></li>
+          </ul>
+        </div>
       </div>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
@@ -128,23 +134,6 @@ const User = ({urlApi}) => {
               </span>}
           </tbody>
         </table>
-        <nav aria-label="Page navigation example">
-          <ul className="pagination">
-            <li className="page-item">
-              <a className="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li className="page-item"><a className="page-link" href="#">1</a></li>
-            <li className="page-item"><a className="page-link" href="#">2</a></li>
-            <li className="page-item"><a className="page-link" href="#">3</a></li>
-            <li className="page-item">
-              <a className="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </Fragment>
   );

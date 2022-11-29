@@ -15,6 +15,10 @@ class User < ApplicationRecord
     Rails.application.routes.url_helpers.url_for(avatar) if avatar.attached?
   end
 
+  def self.sort_by
+    %w[name email]
+  end
+
   private
 
   def send_notify_email
@@ -41,4 +45,6 @@ class User < ApplicationRecord
 
     errors.add(:data_de_aniversario, 'precisa ser a maior ou igual a 18 anos')
   end
+
+  private_class_method :sort_by
 end

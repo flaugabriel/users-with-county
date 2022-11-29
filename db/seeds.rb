@@ -1,5 +1,19 @@
-User.create(name: 'Gabriel Flauzino Mota', cpf: '81522896040', cns: '564165165162165', email: 'flaugabriel@gmail.com',
-            birth_date: Date.today - 26.years, phone: '69999705594', status: 0)
+User.create(name: 'Manuel freitas', cpf: '81522896040', cns: '564165165162165', email: 'flaugabriel@gmail.com',
+            birth_date: Date.today - 20.years, phone: '69999705594', status: 0)
+User.create(name: 'Jose chico xavier', cpf: '81522896040', cns: '564165165162165', email: 'flaugabriel@gmail.com',
+            birth_date: Date.today - 19.years, phone: '69999705594', status: 0)
+User.create(name: 'Camila', cpf: '81522896040', cns: '564165165162165', email: 'flaugabriel@gmail.com',
+            birth_date: Date.today - 27.years, phone: '69999705594', status: 0)
+User.create(name: 'Diana pereira', cpf: '81522896040', cns: '564165165162165', email: 'flaugabriel@gmail.com',
+            birth_date: Date.today - 24.years, phone: '69999705594', status: 0)
+User.create(name: 'danel silva de freitas', cpf: '81522896040', cns: '564165165162165', email: 'flaugabriel@gmail.com',
+            birth_date: Date.today - 21.years, phone: '69999705594', status: 0)
+User.create(name: 'Carlos andre', cpf: '81522896040', cns: '564165165162165', email: 'flaugabriel@gmail.com',
+            birth_date: Date.today - 46.years, phone: '69999705594', status: 0)
+User.create(name: 'Pedro martins', cpf: '81522896040', cns: '564165165162165', email: 'flaugabriel@gmail.com',
+            birth_date: Date.today - 66.years, phone: '69999705594', status: 0)
+User.create(name: 'Gabriel Mota', cpf: '81522896040', cns: '564165165162165', email: 'flaugabriel@gmail.com',
+            birth_date: Date.today - 36.years, phone: '69999705594', status: 0)
 User.create(name: 'Alexandra figueiredo', cpf: '14316990047', cns: '564165165162234', email: 'teste1@gmail.com',
             birth_date: Date.today - 45.years, phone: '69999705545', status: 0)
 User.create(name: 'Samara julia', cpf: '43468216009', cns: '564165325235235', email: 'teste2@gmail.com',

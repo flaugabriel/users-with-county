@@ -179,7 +179,7 @@ const UserNew = (props) => {
 				<div className="container">
 					{
 					imgData === null ? 
-					<span className="text-secondary"><h2>Faça o upload de uma foto que a mesma devera aparece abaixo.</h2></span>
+					<span className="text-secondary"><h2>Ao realizar o uplaod de uma foto, sera apresentada logo abaixo</h2></span>
 					: 
 	          <img className="img-thumbnail" alt="user avatar" src={imgData}/>
 					}

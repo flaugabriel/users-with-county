@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all.order('updated_at desc').limit(params[:limit]).offset(params[:offset])
+    @users = User.where(status: params[:status].present? ? params[:status] : [:on, :off]).order("#{params[:order]}")
 
     return json_error_response('Não foi encontrado nenhuma pessoa', :not_found) unless @users.present?
 
