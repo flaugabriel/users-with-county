@@ -1,6 +1,5 @@
 FROM node:16.18.1
-ENV PORT 3030
-EXPOSE 3030
+ENV PORT 4001
 WORKDIR /app
 COPY start-client.sh ./
 COPY package.json ./
@@ -8,3 +7,5 @@ COPY package-lock.json ./
 COPY ./ ./
 RUN npm config set proxy http://domain:8080
 RUN npm i
+EXPOSE 4001
+
