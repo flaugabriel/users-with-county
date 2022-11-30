@@ -1,5 +1,4 @@
 # README
-TESTE 0M30 - GABRIEL FLAUZINO MOTA
 
 Antes de executa o projeto, abiaxo se emcontra os dados/requisitos que foram necessário 
 para o desenvolvimento deste software.
