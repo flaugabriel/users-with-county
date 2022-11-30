@@ -1,13 +1,13 @@
-require "rails_helper"
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 RSpec.describe Api::V1::CountiesController, type: :controller do
   describe '# GET index' do
     context 'with valid params' do
-
       before 'build county' do
         create_counties
       end
-
 
       subject { get :index, format: :json }
 
@@ -36,7 +36,7 @@ RSpec.describe Api::V1::CountiesController, type: :controller do
         County.delete_all
       end
 
-      subject { post :create, params: {county: {name: 'teste', status: 1}} , format: :json }
+      subject { post :create, params: { county: { name: 'teste', status: 1 } }, format: :json }
       it { is_expected.to have_http_status(:unprocessable_entity) }
       it 'when is not create' do
         expect(is_expected.target.stream.body.as_json.present?).to eq(true)
@@ -48,13 +48,13 @@ RSpec.describe Api::V1::CountiesController, type: :controller do
 
   def create_counties
     30.times do |numero|
-      county = County.create(name: "Cidade #{numero.to_s}")
-      user = User.create(name: "User #{numero.to_s}",
-                  email: "bruce#{numero.to_s}@ironmaiden.com",
-                  cpf: '45010589001',
-                  cns: '6513516',
-                  phone: '69999705594',
-                  birth_date: 18.years.ago)
+      county = County.create(name: "Cidade #{numero}")
+      user = User.create(name: "User #{numero}",
+                         email: "bruce#{numero}@ironmaiden.com",
+                         cpf: '45010589001',
+                         cns: '6513516',
+                         phone: '69999705594',
+                         birth_date: 18.years.ago)
       UserCounty.create(county_id: county.id, user_id: user.id)
     end
   end
