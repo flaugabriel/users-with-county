@@ -53,17 +53,17 @@ Tecnologias utilizads:
 Há duas maneiras de levanta o projeto
 ---
 ##### OBS: entre no projeto /backend-om30-flauzino
-#### Com banco desacoplado do back-end e front-end, em docker
+#### Com apenas o banco em docker
   * para subir o banco de dados execute
 ```shell
 docker-compose build
-docker-compose up
+docker-compose up db_om30
 ```
 *  para executa o backend
   * dentro do projeto execute
 ```shell
 bundle install 
-rails db:create db:migrate db:seed 
+rails db:drop db:create db:migrate db:seed 
 rails s
 ```
 * para executa o front-end entre no arquivo /front-end-om30-flauzino e rode
@@ -74,7 +74,7 @@ npm install && npm run start
 * Para levanta o banco de dados front-end e backend execute
 ```shell
 docker-compose build
-docker-compose up db_om30
+docker-compose up 
 ```
 * para roda os testes em rspec execute
 ```shell
