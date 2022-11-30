@@ -3,7 +3,6 @@
 Antes de executa o projeto, abiaxo se emcontra os dados/requisitos que foram necessário 
 para o desenvolvimento deste software.
 
-
 1. - [x] Cria um CRUD de municipios.
 2. - [x] Não deleta.
 3. - [x] Status ativo e inativo.
@@ -51,9 +50,7 @@ Tecnologias utilizads:
 - Docker
 - docker-compose
 
-## Setup
-
-Para subir o projeto há duas maneiras
+Há duas maneiras de levanta o projeto
 ---
 ##### OBS: entre no projeto /backend-om30-flauzino
 #### Com banco desacoplado do back-end e front-end, em docker
@@ -79,6 +76,13 @@ npm install && npm run start
 docker-compose build
 docker-compose up
 ```
+* para roda os testes em rspec execute
+```shell
+docker exec -it web bundle exec rspec
+```
 * para configura o projeto execute
-
-##
+    * o comando abaixo reseta, drop cria, migra tabelas e popula 
+```shell
+docker exec -it web bundle exec rails db:drop db:create db:migrate db:seed
+```
+##### Abra o navegador na url http://localhost:3001 ou http://0.0.0.0:3001

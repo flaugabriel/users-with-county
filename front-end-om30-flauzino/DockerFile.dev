@@ -1,6 +1,6 @@
 FROM node:16.18.1
-ENV PORT 3000
-EXPOSE 3001
+ENV PORT 3030
+EXPOSE 3030
 WORKDIR /app
 COPY start-client.sh ./
 COPY package.json ./
