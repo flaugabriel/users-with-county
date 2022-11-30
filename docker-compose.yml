@@ -11,7 +11,7 @@ services:
     volumes:
       - .:/client
     ports:
-      - 3000:3000
+      - 3030:3030
     depends_on:
       - db_om30
     links:
@@ -28,7 +28,7 @@ services:
     volumes:
       - .:/web
     ports:
-      - 3001:3001
+      - 3000:3000
     depends_on:
       - db_om30
       - web

@@ -85,4 +85,4 @@ docker exec -it web bundle exec rspec
 ```shell
 docker exec -it web bundle exec rails db:drop db:create db:migrate db:seed
 ```
-##### Abra o navegador na url http://localhost:3001 ou http://0.0.0.0:3001
+##### Abra o navegador na url http://localhost:3000 ou http://0.0.0.0:3000
