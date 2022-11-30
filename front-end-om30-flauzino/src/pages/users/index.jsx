@@ -61,15 +61,15 @@ const User = ({urlApi}) => {
     <Fragment>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Lista de Pessoas</h2>
-        <div class="dropdown">
-          <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+        <div className="dropdown">
+          <button type="button" className="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
             Filtre por
           </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href='users#' onClick={() => setFilters({order: 'updated_at desc'})}>Recente</a></li>
-            <li><a class="dropdown-item" href='users#' onClick={() => setFilters({order: 'created_at desc'})}>Antigos</a></li>
-            <li><a class="dropdown-item" href='users#' onClick={() => setFilters({status: 'on'})}>Status ativos</a></li>
-            <li><a class="dropdown-item" href='users#' onClick={() => setFilters({status: 'off'})}>Status inativos</a></li>
+          <ul className="dropdown-menu">
+            <li><a className="dropdown-item" href='users#' onClick={() => setFilters({order: 'updated_at desc'})}>Recente</a></li>
+            <li><a className="dropdown-item" href='users#' onClick={() => setFilters({order: 'created_at desc'})}>Antigos</a></li>
+            <li><a className="dropdown-item" href='users#' onClick={() => setFilters({status: 'on'})}>Status ativos</a></li>
+            <li><a className="dropdown-item" href='users#' onClick={() => setFilters({status: 'off'})}>Status inativos</a></li>
           </ul>
         </div>
       </div>
@@ -94,9 +94,9 @@ const User = ({urlApi}) => {
               <tr key={item.id}>
                 <td>
                   {item.avatar_url !== '' ? 
-                      <img src={item.avatar_url} class="rounded-circle"
+                      <img src={item.avatar_url} className="rounded-circle"
                       height="60" alt="Avatar" loading="lazy" />
-                      : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50"><path d="M10.97 8.265a1.45 1.45 0 00-.487.57.75.75 0 01-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 011.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 00-.435.409v1.37a.75.75 0 11-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 00-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265zM13 17a1 1 0 11-2 0 1 1 0 012 0z"></path><path fill-rule="evenodd" d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zM2.5 12a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z"></path></svg> }
+                      : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50"><path d="M10.97 8.265a1.45 1.45 0 00-.487.57.75.75 0 01-1.341-.67c.2-.402.513-.826.997-1.148C10.627 6.69 11.244 6.5 12 6.5c.658 0 1.369.195 1.934.619a2.45 2.45 0 011.004 2.006c0 1.033-.513 1.72-1.027 2.215-.19.183-.399.358-.579.508l-.147.123a4.329 4.329 0 00-.435.409v1.37a.75.75 0 11-1.5 0v-1.473c0-.237.067-.504.247-.736.22-.28.486-.517.718-.714l.183-.153.001-.001c.172-.143.324-.27.47-.412.368-.355.569-.676.569-1.136a.953.953 0 00-.404-.806C12.766 8.118 12.384 8 12 8c-.494 0-.814.121-1.03.265zM13 17a1 1 0 11-2 0 1 1 0 012 0z"></path><path fillRule="evenodd" d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zM2.5 12a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z"></path></svg> }
                 </td>
                 <td>{item.name}</td>
                 <td>{cpfMask(item.cpf)}</td>
