@@ -68,7 +68,7 @@ const UserNew = (props) => {
 	}
 
 	function submitAvatar(formData, id){
-		fetch('http://localhost:3000/api/v1/users/avatar/'+id, {
+		fetch('http://localhost:3030/api/v1/users/avatar/'+id, {
 			method: 'PUT',
 			body: formData
 		})

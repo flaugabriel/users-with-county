@@ -14,7 +14,7 @@ import Addresses from './pages/addresses/index';
 import AddressesNew from './pages/addresses/new/index';
 import AddressesEdit from './pages/addresses/edit/index';
 
-const API_URL = 'http://localhost:3000/api/v1/'
+const API_URL = 'http://localhost:3030/api/v1/'
 
 function App() {
 

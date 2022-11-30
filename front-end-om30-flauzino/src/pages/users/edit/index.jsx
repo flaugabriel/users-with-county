@@ -91,7 +91,7 @@ const UserEdit = (props) => {
 	}
 
 	function submitAvatar(formData){
-		fetch('http://localhost:3000/api/v1/users/avatar/'+id, {
+		fetch('http://localhost:3030/api/v1/users/avatar/'+id, {
 			method: 'PUT',
 			body: formData
 		})
