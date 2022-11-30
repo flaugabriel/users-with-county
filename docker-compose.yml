@@ -1,6 +1,40 @@
 version: "3"
 
 services:
+  web: &web
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    tty: true
+    command: bash start.sh
+    volumes:
+      - .:/client
+    ports:
+      - 3000:3000
+    depends_on:
+      - db_om30
+    links:
+      - db_om30
+
+  client: &client
+    container_name: client
+    build:
+      context: ./front-end-om30-flauzino
+      dockerfile: DockerFile.dev
+    command: bash start-client.sh
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/web
+    ports:
+      - 3001:3001
+    depends_on:
+      - db_om30
+      - web
+    links:
+      - db_om30
+
   db_om30:
     image: postgres
     environment:
@@ -8,3 +42,5 @@ services:
       - POSTGRES_USERNAME=postgres
     ports:
       - "5432:5432"
+
+
