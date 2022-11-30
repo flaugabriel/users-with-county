@@ -74,7 +74,7 @@ npm install && npm run start
 * Para levanta o banco de dados front-end e backend execute
 ```shell
 docker-compose build
-docker-compose up
+docker-compose up db_om30
 ```
 * para roda os testes em rspec execute
 ```shell
