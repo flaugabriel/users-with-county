@@ -63,6 +63,7 @@ docker-compose up db_om30
   * dentro do projeto execute
 ```shell
 bundle install 
+mailcatcher
 rails db:drop db:create db:migrate db:seed 
 rails s
 ```
