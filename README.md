@@ -1,4 +1,9 @@
 # README
+Este projeto tem o objetivo de cadastrar e vincula pessoas/usuários em municipios com as funcionalidades de 
+* CRUD de municipios
+* CRUD de Estados
+* CRUD de Pessoas
+* agregar Pessoas a Municipios
 
 Antes de executa o projeto, abiaxo se emcontra os dados/requisitos que foram necessário 
 para o desenvolvimento deste software.
