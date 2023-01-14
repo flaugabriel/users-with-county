@@ -13,9 +13,9 @@ services:
     ports:
       - 3030:3030
     depends_on:
-      - db_om30
+      - db
     links:
-      - db_om30
+      - db
 
   client: &client
     container_name: client
@@ -30,12 +30,12 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - db_om30
+      - db
       - web
     links:
-      - db_om30
+      - db
 
-  db_om30:
+  db:
     image: postgres
     environment:
       - POSTGRES_PASSWORD=postgres
