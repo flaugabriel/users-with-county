@@ -62,7 +62,7 @@ Há duas maneiras de levanta o projeto
   * para subir o banco de dados execute
 ```shell
 docker-compose build
-docker-compose up db_om30
+docker-compose up db
 ```
 *  para executa o backend
   * dentro do projeto execute
